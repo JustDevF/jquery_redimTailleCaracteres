@@ -1,0 +1,46 @@
+<!-- Nous allons permettre à l’utilisateur de modifier, à son gré, la taille de la police de caractères pour un meilleur confort de lecture.-->
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery</title> 
+<script src="jquery.js" ></script> 
+<script> 
+     //charger le DOM
+    $(document).ready(function(){ 
+        //action de click sur le bouton
+        $('input').click(function(){ 
+                //texte 
+            var texte = $('p'); 
+                //La taille de caractères 
+            var taille = texte.css('fontSize'); 
+                //convertit cette chaîne de caractères sous forme de nombre 
+            var nombre = parseFloat(taille, 10);
+               //nous obtenons l’unité utilisée pour la taille de caractères  
+            var unite = taille.slice(-2); 
+            if(this.id == 'plus') { 
+                nombre *= 1.2; 
+            } 
+            else if (this.id == 'moins') 
+            { 
+                nombre /=1.2; 
+            }
+            //nous obtenons l’unité utilisée pour la taille de caractères  
+            texte.css('fontSize', nombre + unite); 
+        }); 
+    }); 
+</script> 
+<style> 
+    p { 
+        font-size: 1em; 
+    } 
+</style> 
+</head> 
+<body> 
+<input type="button" value="Plus grand" id="plus" /> 
+<input type="button" value="Plus petit" id="moins" /> 
+<p>Lorem ipsum dolor sit amet, magna adipiscing elit. Quisque at  
+cursus est. Phasellus id ligula massa. Quisque id lacus mauris.  
+Suspendisse vehicula tortor eu magna.</p> 
+</body> 
+</html>

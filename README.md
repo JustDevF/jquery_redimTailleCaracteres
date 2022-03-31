@@ -1,0 +1,1 @@
+mini projet jquery  redimTailleCaractères
